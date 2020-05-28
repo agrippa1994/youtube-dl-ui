@@ -1,0 +1,183 @@
+{
+  "version": 1,
+  "projects": {
+    "youtube-dl": {
+      "root": "apps/youtube-dl",
+      "sourceRoot": "apps/youtube-dl/src",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/web:build",
+          "options": {
+            "outputPath": "dist/apps/youtube-dl",
+            "index": "apps/youtube-dl/src/index.html",
+            "main": "apps/youtube-dl/src/main.tsx",
+            "polyfills": "apps/youtube-dl/src/polyfills.ts",
+            "tsConfig": "apps/youtube-dl/tsconfig.app.json",
+            "assets": [
+              "apps/youtube-dl/src/favicon.ico",
+              "apps/youtube-dl/src/assets"
+            ],
+            "styles": ["apps/youtube-dl/src/styles.css"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/youtube-dl/src/environments/environment.ts",
+                  "with": "apps/youtube-dl/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "youtube-dl:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "youtube-dl:build:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "apps/youtube-dl/.eslintrc",
+            "tsConfig": [
+              "apps/youtube-dl/tsconfig.app.json",
+              "apps/youtube-dl/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/youtube-dl/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/youtube-dl/jest.config.js",
+            "tsConfig": "apps/youtube-dl/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "youtube-dl-e2e": {
+      "root": "apps/youtube-dl-e2e",
+      "sourceRoot": "apps/youtube-dl-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/youtube-dl-e2e/cypress.json",
+            "tsConfig": "apps/youtube-dl-e2e/tsconfig.e2e.json",
+            "devServerTarget": "youtube-dl:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "youtube-dl:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "apps/youtube-dl-e2e/.eslintrc",
+            "tsConfig": ["apps/youtube-dl-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/youtube-dl-e2e/**"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/react"
+  },
+  "schematics": {
+    "@nrwl/workspace": {
+      "library": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/cypress": {
+      "cypress-project": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/react": {
+      "application": {
+        "style": "css",
+        "linter": "eslint",
+        "babel": true
+      },
+      "library": {
+        "style": "css",
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      },
+      "component": {
+        "style": "css"
+      }
+    },
+    "@nrwl/next": {
+      "application": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/web": {
+      "application": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/node": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/nx-plugin": {
+      "plugin": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/nest": {
+      "application": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/express": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      }
+    }
+  },
+  "defaultProject": "youtube-dl"
+}
