@@ -5,6 +5,8 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { PubSub } from 'graphql-subscriptions';
 import { PUB_SUB } from './constants';
 import { AppController } from './app.controller';
+import { UpdaterService } from './updater.service';
+import { ScheduleModule } from '@nestjs/schedule';
 
 @Module({
   imports: [
@@ -14,11 +16,13 @@ import { AppController } from './app.controller';
       autoSchemaFile: true,
       installSubscriptionHandlers: true,
     }),
+    ScheduleModule.forRoot(),
   ],
   providers: [
     { provide: PUB_SUB, useValue: new PubSub() },
     AppResolver,
     AppService,
+    UpdaterService,
   ],
   controllers: [AppController],
 })

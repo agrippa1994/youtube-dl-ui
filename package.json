@@ -36,6 +36,7 @@
     "@nestjs/core": "^7.1.1",
     "@nestjs/graphql": "^7.3.11",
     "@nestjs/platform-express": "^7.1.1",
+    "@nestjs/schedule": "^0.4.0",
     "@nestjs/serve-static": "^2.1.1",
     "apollo-boost": "^0.4.9",
     "apollo-cache-inmemory": "^1.6.6",
