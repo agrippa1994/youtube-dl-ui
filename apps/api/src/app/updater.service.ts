@@ -6,7 +6,7 @@ import { Cron } from '@nestjs/schedule';
 
 @Injectable()
 export class UpdaterService implements OnModuleInit {
-  @Cron('* */30 * * * *')
+  @Cron('0 */30 * * * *')
   async onModuleInit() {
     if (!environment.production) {
       Logger.debug(
