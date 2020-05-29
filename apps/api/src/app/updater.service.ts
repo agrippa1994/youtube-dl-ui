@@ -9,7 +9,10 @@ export class UpdaterService implements OnModuleInit {
   @Cron('* */30 * * * *')
   async onModuleInit() {
     if (!environment.production) {
-      Logger.debug('Skipping update - not on production system');
+      Logger.debug(
+        'Skipping update - not on production system',
+        'UpdaterService'
+      );
       return;
     }
 
@@ -25,9 +28,7 @@ export class UpdaterService implements OnModuleInit {
   }
 
   private async execAndLog(command: string) {
-    const { stdout, stderr } = await this.exec(
-      'curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/bin/youtube-dl'
-    );
+    const { stdout, stderr } = await this.exec(command);
     if (stdout) {
       Logger.debug(stdout, 'UpdaterService');
     }
