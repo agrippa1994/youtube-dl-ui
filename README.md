@@ -3,8 +3,8 @@
 This project uses the [Nx](https://nx.dev) monorepository tools. 
 
 ## Prerequisites
-* Download and install [youtube-dl](https://youtube-dl.org/) and
-ffmpeg [https://ffmpeg.org/](ffmpeg) and make sure that both tools are
+* Download and install [youtube-dl](https://youtube-dl.org/) and 
+[ffmpeg](https://ffmpeg.org/) and make sure that both tools are
 in your ```PATH``` environment variable. youtube-dl is used for downloading
 the content and ffmpeg is responsible for converting the videos in the desired 
 format.
