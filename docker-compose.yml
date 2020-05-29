@@ -2,7 +2,6 @@ version: '3.4'
 
 services:
   api:
-    #image: registry.test.incentive-roleplay.de/altv/cp-api:latest
     build:
       context: .
       target: build_api
@@ -13,7 +12,6 @@ services:
       - downloads:/usr/share/app/downloads
 
   youtube-dl:
-    #image: registry.test.incentive-roleplay.de/altv/web:latest
     build:
       context: .
       target: build_youtube_dl
