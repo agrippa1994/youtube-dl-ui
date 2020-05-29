@@ -25,6 +25,9 @@
     "youtube-dl-e2e": {
       "tags": [],
       "implicitDependencies": ["youtube-dl"]
+    },
+    "api": {
+      "tags": []
     }
   }
 }

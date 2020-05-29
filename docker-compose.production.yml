@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  api:
+    restart: always
+
+  youtube-dl:
+    restart: always
+    environment:
+      - VIRTUAL_HOST=${HOST_NAME}
+      - LETSENCRYPT_HOST=${HOST_NAME}
+      - LETSENCRYPT_EMAIL=${MAIL}
+      - VIRTUAL_PORT=80

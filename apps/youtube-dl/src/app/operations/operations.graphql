@@ -1,0 +1,13 @@
+# Write your query or mutation here
+subscription Download($id: String!) {
+  download(id: $id) {
+    type
+    progress
+    file
+    url
+  }
+}
+
+mutation StartDownload($id: String!, $url: String!) {
+  startDownload(id: $id, url: $url)
+}

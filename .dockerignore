@@ -1,0 +1,15 @@
+node_modules
+.github
+config
+dist
+electron
+.env.sample
+.env
+.gitignore
+capacitor.config.json
+config.production.json
+config.yml
+docker-compose.dev.yml
+docker-compose.production.yml
+docker-compose.yml
+Dockerfile

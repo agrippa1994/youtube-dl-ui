@@ -1,0 +1,13 @@
+overwrite: true
+schema: "http://localhost:3333/graphql"
+documents: "./apps/youtube-dl/src/app/operations/*.graphql"
+generates:
+  ./apps/youtube-dl/src/app/operations/operations.tsx:
+    config:
+      withHooks: true
+      withComponent: false
+      withHOC: false
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo"

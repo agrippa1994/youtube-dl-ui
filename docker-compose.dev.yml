@@ -1,0 +1,6 @@
+version: '3.4'
+
+services:
+  youtube-dl:
+    ports:
+      - 8088:80
