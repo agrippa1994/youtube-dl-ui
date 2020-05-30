@@ -73,6 +73,7 @@ export class AppService {
               '--add-metadata',
               '--metadata-from-title',
               '(?P<artist>.+?) - (?P<title>.+)', // extract title and try to use it as meta data
+              '-v', // more verbose
               url,
             ],
             { cwd: dir }
