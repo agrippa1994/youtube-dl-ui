@@ -1,5 +1,7 @@
 # Youtube Downloader UI
 
+![Sample picture](docs/assets/page.png)
+
 This project uses the [Nx](https://nx.dev) monorepository tools. 
 
 ## Prerequisites
