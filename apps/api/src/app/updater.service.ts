@@ -18,10 +18,7 @@ export class UpdaterService implements OnModuleInit {
 
     try {
       Logger.debug('Fetching latest youtube-dl');
-      await this.execAndLog(
-        'curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/bin/youtube-dl'
-      );
-      await this.execAndLog('chmod +x /usr/bin/youtube-dl');
+      await this.execAndLog('youtube-dl -U');
     } catch (e) {
       Logger.error('Error while updating youtube-dl', `${e}`, 'UpdaterService');
     }
