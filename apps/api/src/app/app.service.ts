@@ -60,7 +60,21 @@ export class AppService {
 
           ytdl = spawn(
             'youtube-dl',
-            ['-x', '--audio-format', 'mp3', '--audio-quality', '0', url],
+            [
+              '-x', // extract audio
+              '--audio-format',
+              'mp3', // extract as mp3
+              '--audio-quality',
+              '0', // best quality
+              '-o',
+              '%(title)s.%(ext)s', // output format
+              '--embed-thumbnail', // use thumbnail as cover
+              '--ignore-errors', // continue downloading if playlist item does not exist
+              '--add-metadata',
+              '--metadata-from-title',
+              '(?P<artist>.+?) - (?P<title>.+)', // extract title and try to use it as meta data
+              url,
+            ],
             { cwd: dir }
           );
           ytdl.stdout.on('data', (data) => {
