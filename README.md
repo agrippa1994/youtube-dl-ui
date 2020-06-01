@@ -11,7 +11,10 @@ in your ```PATH``` environment variable. youtube-dl is used for downloading
 the content and ffmpeg is responsible for converting the videos in the desired 
 format.
 
-## Setup
+## Docker Deployment
+
+
+## Development
 * First install node.js and the yarn package manager.
     ```bash
     npm install -g yarn
