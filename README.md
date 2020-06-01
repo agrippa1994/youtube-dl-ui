@@ -51,4 +51,7 @@ and the deployment should be finished.
     ```
 * Navigate with your browser to [localhost:4200](http://localhost:4200) and that's it.
 
-
+## Roadmap
+* Add support for downloading videos in various formats
+* Housekeeping of downloads on the server
+* Store download information in the browser (local storage) in order to keep download history
