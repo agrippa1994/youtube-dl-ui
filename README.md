@@ -12,7 +12,25 @@ the content and ffmpeg is responsible for converting the videos in the desired
 format.
 
 ## Docker Deployment
+Create a ```docker-compose.yml``` file with following content
+```yaml
+version: '3'
 
+services:
+  youtube-dl:
+    image: agrippa1994/youtube-dl-ui
+    command: ["node", "dist/apps/api/main.js"]
+    volumes:
+      - downloads:/usr/share/app/downloads
+    restart: always
+    ports:
+      - 3333:3333
+
+volumes:
+  downloads:
+```
+and start it with ```docker-compose up -d```. Navigate to the [localhost:3333](http://localhost:3333)
+and the deployment should be finished.
 
 ## Development
 * First install node.js and the yarn package manager.

@@ -40,3 +40,4 @@ Thumbs.db
 
 .env
 downloads
+packages-cache/*.tgz
