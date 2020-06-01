@@ -1,9 +1,6 @@
 version: '3.4'
 
 services:
-  api:
-    restart: always
-
   youtube-dl:
     restart: always
     environment:

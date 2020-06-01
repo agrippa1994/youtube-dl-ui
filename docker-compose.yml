@@ -1,32 +1,21 @@
 version: '3.4'
 
 services:
-  api:
-    build:
-      context: .
-      target: build_api
-    command: ["node", "dist/apps/api/main.js"]
-    networks:
-      - internal
-    volumes:
-      - downloads:/usr/share/app/downloads
-
   youtube-dl:
+    image: agrippa1994/youtube-dl-ui
     build:
       context: .
       target: build_youtube_dl
+    command: ["node", "dist/apps/api/main.js"]
     networks:
-      - internal
       - http
     volumes:
-      - ./config/nginx/youtube_dl.conf:/etc/nginx/conf.d/default.conf:ro
-
+      - downloads:/usr/share/app/downloads
 
 networks:
   http:
     external:
       name: main
-  internal:
 
 volumes:
   downloads:

@@ -7,6 +7,8 @@ import { PUB_SUB } from './constants';
 import { AppController } from './app.controller';
 import { UpdaterService } from './updater.service';
 import { ScheduleModule } from '@nestjs/schedule';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import * as path from 'path';
 
 @Module({
   imports: [
@@ -17,6 +19,10 @@ import { ScheduleModule } from '@nestjs/schedule';
       installSubscriptionHandlers: true,
     }),
     ScheduleModule.forRoot(),
+    ServeStaticModule.forRoot({
+      exclude: ['/graphql', '/downloads'],
+      rootPath: path.join(process.cwd(), 'dist', 'apps', 'youtube-dl'),
+    }),
   ],
   providers: [
     { provide: PUB_SUB, useValue: new PubSub() },

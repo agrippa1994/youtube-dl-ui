@@ -1,5 +1,3 @@
-import { Controller, Get } from '@nestjs/common';
-
 import { AppService } from './app.service';
 import { Args, Mutation, Query, Resolver, Subscription } from '@nestjs/graphql';
 import { DownloadDto } from './dto/download.dto';

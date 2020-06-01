@@ -30,6 +30,7 @@
   "dependencies": {
     "@apollo/react-common": "^3.1.4",
     "@apollo/react-hooks": "^3.1.5",
+    "@graphql-tools/utils": "^6.0.5",
     "@material-ui/core": "^4.10.0",
     "@material-ui/icons": "^4.9.1",
     "@nestjs/common": "^7.1.1",
@@ -54,6 +55,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "reflect-metadata": "^0.1.13",
+    "rxjs": "^6.5.5",
     "subscriptions-transport-ws": "^0.9.16",
     "uuid": "^8.1.0"
   },
