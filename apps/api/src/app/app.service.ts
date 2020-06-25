@@ -68,7 +68,7 @@ export class AppService {
               '0', // best quality
               '-o',
               '%(title)s.%(ext)s', // output format
-              '--embed-thumbnail', // use thumbnail as cover
+              // '--embed-thumbnail', // use thumbnail as cover
               '--ignore-errors', // continue downloading if playlist item does not exist
               '--add-metadata',
               '--metadata-from-title',
